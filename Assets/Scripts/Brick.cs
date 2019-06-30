@@ -12,6 +12,8 @@ public class Brick : MonoBehaviour
     private Animator anim;
     ScoreManager sm;
 
+
+
     public void DestroyBricks()
     {
         Vector3 pos = transform.position;
@@ -19,7 +21,8 @@ public class Brick : MonoBehaviour
         GetComponentInParent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         Destroy(this.gameObject,0.6f);
-        Instantiate(brickBreakParticles, pos, Quaternion.Euler(-90,0,0));
+        Destroy(Instantiate(brickBreakParticles, pos, Quaternion.Euler(-90,0,0)), 1f);
+
     }
 
     void Awake()

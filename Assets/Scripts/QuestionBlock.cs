@@ -45,4 +45,17 @@ public class QuestionBlock : MonoBehaviour
             return true;
         return false;
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (IsPlayerBelow(collision.gameObject))
+        {
+            GetComponent<BoxCollider2D>().isTrigger = false;
+
+            Instantiate(prefabToAppear, transform.parent.transform.position, Quaternion.identity); //instantiate other obj
+            timesToBeHit--;
+            anim.SetTrigger("GotHit"); //hit animation
+            anim.SetBool("EmptyBlock", true);
+        }
+    }
 }
