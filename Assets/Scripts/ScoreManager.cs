@@ -1,14 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     public int startTimeSeconds = 400;
 
-    private float currentTime = 0;
-    private int score = 0;
-    private int coins = 0;
+    public float currentTime = 0;
+    public int score = 0;
+    public int coins = 0;
+
+    public Text ScoreTxt;
+    public Text CountTxt;
+    public Text TimeTxt;
 
     private int goombaKillSpreeCounter = 0;
     private float goombaLastKillTimer = 0;
@@ -29,8 +35,10 @@ public class ScoreManager : MonoBehaviour
         }
 
         if (currentTime <= 0) ;
-			//RESTART
-
+        //RESTART
+        ScoreTxt.text = "MARIO\n" + score.ToString("D6");
+        CountTxt.text = "x" + coins.ToString("D2");
+        TimeTxt.text = "Time\n" + Math.Round(currentTime);
     }
     ////GETS///////////////////////
     public float GetCurrentTime()

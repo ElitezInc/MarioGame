@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isInvulnerable = false;
 
+    public RuntimeAnimatorController FinishAnim;
+
     private float movementInput = 0f;
     private float jumpTimeCounter = 0f;
     private float invulnerabilityTimer = 0f;
@@ -254,5 +256,11 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         takeAwayControll = false; //give back control when it's no longer colliding with anything
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "Pole") GetComponent<Animator>().runtimeAnimatorController = FinishAnim;
+        Destroy(this.gameObject, 3f);
     }
 }

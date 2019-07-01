@@ -5,4 +5,5 @@ This project is submitted as a Unity student tester engineer position applicatio
 - Uploaded project to the repository for better changes in-depth analysis.
 - Fixed code errors, added rigidbody to Mario with frozen Z axis rotation and parented camera to Mario.
 - Fixed missing tiles and horizontal flipping.
-- Implemented hidden block feature
+- Implemented hidden block feature.
+- Added UI and animation sequence for finishing the level.
